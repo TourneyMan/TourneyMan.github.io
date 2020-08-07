@@ -1,9 +1,23 @@
 <html>
 <script src='https://d3js.org/d3.v5.js'></script>
-<style> circle {fill: pink; stroke: black;} </style>
+<style> circle {stroke: black;} </style>
 
 <style>
-.chart rect { fill: steelblue; }
+a:link{
+  background-color: #FFFFFF;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+
+</style>
+
+<style>
 #tooltip {
 	opacity: 1;
 	position: absolute;
@@ -28,7 +42,7 @@
 </style>
 
 <body onload='init()'>
-<svg width=1200 height=750>
+<svg width=1150 height=750>
 </svg>
 <div id="tooltip"></div>
 <div id="checkboxes">
@@ -141,7 +155,7 @@ async function init() {
       .attr('transform','translate(150,650)').call(d3.axisBottom(xs));
 
   svg.append("text")
-      .attr("x", 550 )
+      .attr("x", 625 )
       .attr("y", 710)
       .style("text-anchor", "middle")
       .style("font-size", "22")
@@ -149,21 +163,21 @@ async function init() {
 
   //Title
   svg.append("text")
-      .attr("x", 550)
+      .attr("x", 625)
       .attr("y", 100)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("Big Ten Basketball");
 
   svg.append("text")
-      .attr("x", 550)
+      .attr("x", 625)
       .attr("y", 125)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("Conference Wins vs March Madness Performance");
 
   svg.append("text")
-      .attr("x", 550)
+      .attr("x", 625)
       .attr("y", 150)
       .style("text-anchor", "middle")
       .style("font-size", "24")
@@ -181,7 +195,7 @@ async function init() {
       .attr("y", 585)
       .style("text-anchor", "middle")
       .style("font-size", "16")
-      .text("Higher Tournament Seeds");
+      .text("Better Tournament Seeds");
 
   function update(){
     // For each check box:
@@ -244,5 +258,13 @@ async function init() {
 
 
 </script>
+<center>
+<p style="font-size:24px">Hi this is what the data is. Weak positive correlation. Bigger circles are better seeds in the March Madness tournament. Overall, there is a clear correlation between more conference wins and doing well in the tournament.</p>
+<p style="font-size:20px">Slides<br>
+<a href="tourneyman.github.io/Slide1.html" style="background-color:#f44336">1</a>
+<a href="tourneyman.github.io/Slide2.html">2</a>
+<a href="tourneyman.github.io/Slide3.html">3</a>
+<a href="tourneyman.github.io/Slide4.html">4</a></p>
+
 </body>
 </html>
