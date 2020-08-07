@@ -93,6 +93,13 @@ async function init() {
   var yAxisLabels = ["First Round", "Second Round", "Sweet Sixteen", "Elite Eight","Final Four","Championship","Champions"];
   var svg = d3.select('svg')
 
+          tooltip.style("opacity",1)
+          .html("Team: " +
+                "<br>Season: " +
+                "<br>Seed: " +
+                "<br>Lost in: " +
+                "<br>Conference Wins: ");
+
 
   svg.append('g')
         .attr('transform','translate(150,100)').selectAll('circle').data(data).enter().append('circle')
