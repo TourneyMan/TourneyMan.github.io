@@ -184,6 +184,13 @@ async function init() {
       .text("Note: Larger Bubbles Indicate");
 
   svg.append("text")
+      .attr("x", 1043)
+      .attr("y",  200)
+      .style("text-anchor", "middle")
+      .style("font-size", "22")
+      .text("Color Key");
+
+  svg.append("text")
       .attr("x", 1050)
       .attr("y", 535)
       .style("text-anchor", "middle")
