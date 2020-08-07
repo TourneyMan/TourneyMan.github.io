@@ -26,7 +26,7 @@ a:hover, a:active {
     background: white;
     border: 3px;
     border-color: black;
-    top: 300px;
+    top: 250px;
     left: 250px;
 }
 </style>
@@ -36,13 +36,13 @@ a:hover, a:active {
 	position: absolute;
     text-align: center;
     width: 150px; height: 150px;
-    top: 275px;
+    top: 225px;
     left: 970px;
 }
 </style>
 
 <body onload='init()'>
-<svg width=1150 height=750>
+<svg width=1150 height=675>
 </svg>
 <div id="tooltip"></div>
 <div id="checkboxes">
@@ -95,7 +95,7 @@ async function init() {
 
 
   svg.append('g')
-        .attr('transform','translate(150,150)').selectAll('circle').data(data).enter().append('circle')
+        .attr('transform','translate(150,100)').selectAll('circle').data(data).enter().append('circle')
       .attr("class" , function(d) {return d.Team.replace(/\s/g, '');})
       .attr('cx', function(d,i) {return xs(d.BigTenWins);})
       .attr('cy', function(d,i) {return ys(d.MarchMadnessWins);})
@@ -121,42 +121,42 @@ async function init() {
 
     //Set y axis
 
-  svg.append('g').attr('transform','translate(150,150)')
+  svg.append('g').attr('transform','translate(150,100)')
     .call(d3.axisLeft(ys).tickValues([0,1,2,3,4,5,6]).tickFormat(function(d) {return yAxisLabels[d];}));
 
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  340)
+      .attr("y",  290)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("March");
 
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  360)
+      .attr("y",  310)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Madness");
 
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  380)
+      .attr("y",  330)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Round");
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  400)
+      .attr("y",  350)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Lost");
    //Set x axis
   svg.append('g')
-      .attr('transform','translate(150,650)').call(d3.axisBottom(xs));
+      .attr('transform','translate(150,600)').call(d3.axisBottom(xs));
 
   svg.append("text")
       .attr("x", 625 )
-      .attr("y", 710)
+      .attr("y", 660)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Regular Season Conference Victories");
@@ -164,35 +164,35 @@ async function init() {
   //Title
   svg.append("text")
       .attr("x", 625)
-      .attr("y", 100)
+      .attr("y", 50)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("Big Ten Basketball");
 
   svg.append("text")
       .attr("x", 625)
-      .attr("y", 125)
+      .attr("y", 75)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("Conference Wins vs March Madness Performance");
 
   svg.append("text")
       .attr("x", 625)
-      .attr("y", 150)
+      .attr("y", 100)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("2008-09 through 2017-18 Seasons");
 
   svg.append("text")
       .attr("x", 1050)
-      .attr("y", 560)
+      .attr("y", 510)
       .style("text-anchor", "middle")
       .style("font-size", "16")
       .text("Note: Larger Bubbles Indicate");
 
   svg.append("text")
       .attr("x", 1050)
-      .attr("y", 585)
+      .attr("y", 535)
       .style("text-anchor", "middle")
       .style("font-size", "16")
       .text("Better Tournament Seeds");

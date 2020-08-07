@@ -26,7 +26,7 @@ a:hover, a:active {
     background: white;
     border: 3px;
     border-color: black;
-    top: 300px;
+    top: 250px;
     left: 250px;
 }
 </style>
@@ -36,41 +36,41 @@ a:hover, a:active {
 	position: absolute;
     text-align: center;
     width: 150px; height: 150px;
-    top: 275px;
+    top: 225px;
     left: 970px;
 }
 </style>
 
 <body onload='init()'>
-<svg width=1150 height=750>
+<svg width=1150 height=675>
 </svg>
 <div id="tooltip"></div>
 <div id="checkboxes">
-  <input type="checkbox" class="checkbox" value="Illinois" checked>
+  <input type="checkbox" class="checkbox" value="Illinois" disabled checked>
     <label style="background-color:#E84A27;">Illinois</label><br>
-  <input type="checkbox" class="checkbox" value="Indiana" checked>
+  <input type="checkbox" class="checkbox" value="Indiana" disabled checked>
     <label style="background-color:#990000;">Indiana</label><br>
-  <input type="checkbox" class="checkbox" value="OhioState" checked>
+  <input type="checkbox" class="checkbox" value="OhioState" disabled checked>
     <label style="background-color:#666666;">Ohio State</label><br>
-  <input type="checkbox" class="checkbox" value="Michigan" checked>
+  <input type="checkbox" class="checkbox" value="Michigan" disabled checked>
     <label style="background-color:#00274c;">Michigan</label><br>
-  <input type="checkbox" class="checkbox" value="MichiganState" checked>
+  <input type="checkbox" class="checkbox" value="MichiganState" disabled checked>
     <label style="background-color:#18453B;">Michigan State</label><br>
-  <input type="checkbox" class="checkbox" value="Iowa" checked>
+  <input type="checkbox" class="checkbox" value="Iowa" disabled checked>
     <label style="background-color:#FFCD00;">Iowa</label><br>
-  <input type="checkbox" class="checkbox" value="PennState" checked>
+  <input type="checkbox" class="checkbox" value="PennState" disabled checked>
     <label style="background-color:#041E42;">Penn State</label><br>
-  <input type="checkbox" class="checkbox" value="Wisconsin" checked>
+  <input type="checkbox" class="checkbox" value="Wisconsin" disabled checked>
     <label style="background-color:#c9c9c9;">Wisconsin</label><br>
-  <input type="checkbox" class="checkbox" value="Purdue" checked>
+  <input type="checkbox" class="checkbox" value="Purdue" disabled checked>
     <label style="background-color:#ceb888;">Purdue</label><br>
-  <input type="checkbox" class="checkbox" value="Minnesota" checked>
+  <input type="checkbox" class="checkbox" value="Minnesota" disabled checked>
     <label style="background-color:#7A0019;">Minnesota</label><br>
-  <input type="checkbox" class="checkbox" value="Nebraska" checked>
+  <input type="checkbox" class="checkbox" value="Nebraska" disabled checked>
     <label style="background-color:#fdf2d9;">Nebraska</label><br>
-  <input type="checkbox" class="checkbox" value="Maryland" checked>
+  <input type="checkbox" class="checkbox" value="Maryland" disabled checked>
     <label style="background-color:#E03a3e;">Maryland</label><br>
-  <input type="checkbox" class="checkbox" value="Northwestern" checked>
+  <input type="checkbox" class="checkbox" value="Northwestern" disabled checked>
     <label style="background-color:#4E2A84;">Northwestern</label><br>
 </div>
 <script>
@@ -95,7 +95,7 @@ async function init() {
 
 
   svg.append('g')
-        .attr('transform','translate(150,150)').selectAll('circle').data(data).enter().append('circle')
+        .attr('transform','translate(150,100)').selectAll('circle').data(data).enter().append('circle')
       .attr("class" , function(d) {return d.Team.replace(/\s/g, '');})
       .attr('cx', function(d,i) {return xs(d.BigTenWins);})
       .attr('cy', function(d,i) {return ys(d.MarchMadnessWins);})
@@ -121,42 +121,42 @@ async function init() {
 
     //Set y axis
 
-  svg.append('g').attr('transform','translate(150,150)')
+  svg.append('g').attr('transform','translate(150,100)')
     .call(d3.axisLeft(ys).tickValues([0,1,2,3,4,5,6]).tickFormat(function(d) {return yAxisLabels[d];}));
 
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  340)
+      .attr("y",  290)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("March");
 
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  360)
+      .attr("y",  310)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Madness");
 
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  380)
+      .attr("y",  330)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Round");
   svg.append("text")
       .attr("x", 50)
-      .attr("y",  400)
+      .attr("y",  350)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Lost");
    //Set x axis
   svg.append('g')
-      .attr('transform','translate(150,650)').call(d3.axisBottom(xs));
+      .attr('transform','translate(150,600)').call(d3.axisBottom(xs));
 
   svg.append("text")
       .attr("x", 625 )
-      .attr("y", 710)
+      .attr("y", 660)
       .style("text-anchor", "middle")
       .style("font-size", "22")
       .text("Regular Season Conference Victories");
@@ -164,35 +164,35 @@ async function init() {
   //Title
   svg.append("text")
       .attr("x", 625)
-      .attr("y", 100)
+      .attr("y", 50)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("Big Ten Basketball");
 
   svg.append("text")
       .attr("x", 625)
-      .attr("y", 125)
+      .attr("y", 75)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("Conference Wins vs March Madness Performance");
 
   svg.append("text")
       .attr("x", 625)
-      .attr("y", 150)
+      .attr("y", 100)
       .style("text-anchor", "middle")
       .style("font-size", "24")
       .text("2008-09 through 2017-18 Seasons");
 
   svg.append("text")
       .attr("x", 1050)
-      .attr("y", 560)
+      .attr("y", 510)
       .style("text-anchor", "middle")
       .style("font-size", "16")
       .text("Note: Larger Bubbles Indicate");
 
   svg.append("text")
       .attr("x", 1050)
-      .attr("y", 585)
+      .attr("y", 535)
       .style("text-anchor", "middle")
       .style("font-size", "16")
       .text("Better Tournament Seeds");
@@ -260,7 +260,7 @@ async function init() {
 </script>
 <div id="mydiv" style="height:500px; width:1150px;"><center>
     <p style="font-size:24px">
-        Here, I have decided to compare take a look at the Big Ten men's basketball teams.
+        I have decided to compare take a look at the Big Ten men's basketball teams.
         This scatterplot was made to determine if there is a correlation between the number of in-conference regular-season games that a team wins and well it does in 'March Madness', the NCAA Basketball tournament.
         Overall, this scatterplot shows a positive correlation between in-conference wins and tournament success. However, the correlation is a lot weaker than I would have expected.
     </p>
