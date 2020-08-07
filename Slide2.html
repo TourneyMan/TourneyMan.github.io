@@ -107,23 +107,7 @@ async function init() {
       .attr('cx', function(d,i) {return xs(d.BigTenWins);})
       .attr('cy', function(d,i) {return ys(d.MarchMadnessWins);})
       .attr('r', function(d,i) {return getSize(d.Seed);})
-      .style('fill', function(d,i) {return getTeamColor(d.Team)})
-      .on("mouseover", function(d,i) {
-        tooltip.style("opacity",1)
-               .html("Team: " + d.Team +
-                     "<br>Season: " + d.Season +
-                     "<br>Seed: " + d.Seed +
-                     "<br>Lost in: " + yAxisLabels[d.MarchMadnessWins] +
-                     "<br>Conference Wins: " + d.BigTenWins);
-      })
-      .on("mouseout", function() {
-        tooltip.style("opacity",1)
-          .html("Team: " +
-                "<br>Season: " +
-                "<br>Seed: " +
-                "<br>Lost in: " +
-                "<br>Conference Wins: ");
-      });
+      .style('fill', function(d,i) {return getTeamColor(d.Team)});
 
 
 
